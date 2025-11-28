@@ -1,0 +1,67 @@
+.home-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.home-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+.btn-primary:hover {
+  background-color: #535bf2;
+}
+
+.join-section {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.join-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.room-input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #1a1a1a;
+  color: white;
+  font-size: 14px;
+}
+
+.room-input:focus {
+  outline: 2px solid #646cff;
+  border-color: transparent;
+}
+
+.btn-secondary {
+  padding: 8px 16px;
+  background-color: #1a1a1a;
+  border: 1px solid #444;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+.btn-secondary:hover {
+  border-color: #646cff;
+}

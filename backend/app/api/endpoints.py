@@ -2,6 +2,8 @@ from fastapi import APIRouter, WebSocket, WebSocketDisconnect, Depends, HTTPExce
 from sqlalchemy.orm import Session
 import uuid
 import asyncio
+import json
+
 
 from app.services.socket_manager import manager
 from app.schemas.room import RoomResponse, AutoCompleteRequest, AutoCompleteResponse
@@ -54,15 +56,13 @@ async def websocket_endpoint(websocket: WebSocket, room_id: str, db: Session = D
         return
     
     try:
-        # 2. Connect
-        await manager.connect(websocket, room_id)
+        await manager.connect(websocket, room_id, db)
         
-        # 3. Listen for messages
         while True:
             data = await websocket.receive_json()
             await manager.broadcast(data, room_id, websocket)
             
     except WebSocketDisconnect:
-        manager.disconnect(websocket, room_id)
+        manager.disconnect(websocket, room_id, db)
     except json.JSONDecodeError:
         print(f"Error decoding JSON in room {room_id}")

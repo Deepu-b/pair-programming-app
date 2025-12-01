@@ -15,6 +15,7 @@ dist-ssr
 venv/
 *.db
 *.sqlite3
+__pycache__/
 
 # Editor directories and files
 .vscode/*

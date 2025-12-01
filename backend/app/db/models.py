@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Text
 from .base import Base
 
 class Room(Base):
@@ -6,3 +6,4 @@ class Room(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     room_id = Column(String, unique=True, index=True)
+    code = Column(Text, default="")

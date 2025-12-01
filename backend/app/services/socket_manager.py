@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict, List, Any
 from fastapi import WebSocket
 from sqlalchemy.orm import Session
 from app.db.models import Room

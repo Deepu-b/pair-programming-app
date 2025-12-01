@@ -4,7 +4,6 @@ import uuid
 import asyncio
 import json
 
-
 from app.services.socket_manager import manager
 from app.schemas.room import RoomResponse, AutoCompleteRequest, AutoCompleteResponse
 from app.db.base import get_db
@@ -34,6 +33,7 @@ async def autocomplete(payload: AutoCompleteRequest):
     lines = payload.code.split('\n')
     last_line = lines[-1].strip() if lines else ""
 
+    # some random suggestions, we can put more intelligent suggestion with AI
     if last_line.startswith("def "):
         suggestion = "\n    # TODO: Implement function logic\n    pass"
     elif last_line.startswith("if "):

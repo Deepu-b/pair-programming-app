@@ -22,13 +22,14 @@ async def periodic_db_sync():
         db = SessionLocal()
         try:
             active_rooms = list(manager.room_state.keys())
-            print(active_rooms)
             for room_id in active_rooms:
                 room_data = manager.room_state.get(room_id)
                 if not room_data: 
                     continue
+
+                current_code = room_data.get("code", "")
                 db_room = db.query(Room).filter(Room.room_id == room_id).first()
-                if db_room:
+                if db_room and db_room.code != current_code:
                     db_room.code = current_code
                 
             db.commit()
